@@ -11,6 +11,7 @@ import {
   Works,
 } from "./components";
 import StarsCanvas from "./components/canvas/Stars";
+import ProblemSolving from "./components/ProblemSolving";
 const App = () => {
   return (
     <BrowserRouter>
@@ -23,6 +24,9 @@ const App = () => {
         <Experience />
         <Tech />
         <Works />
+
+        <ProblemSolving />
+
         <Feedbacks />
         <div className="relative z-0">
           <Contact />
