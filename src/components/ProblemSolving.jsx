@@ -1,12 +1,11 @@
 import { Carousel } from "@material-tailwind/react";
 import { motion } from "framer-motion";
-import { fadeIn, textVariant } from "../utils/motion";
+import { textVariant } from "../utils/motion";
 import LeetcodeDays from "../assets/LeetCodeDays.png";
 import LeetcodeBadge from "../assets/LeetcodeAnnual.png";
 import LeetcodeBadges from "../assets/LeetcodeBadges.png";
 import hackerRank from "../assets/HackerRank.png";
 import GFG from "../assets/GeeksForGeeks.png";
-import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
 import DialogWithImage from "./CarouselDialog";
 function ProblemSolving() {
