@@ -12,6 +12,7 @@ import {
 } from "./components";
 import StarsCanvas from "./components/canvas/Stars";
 import ProblemSolving from "./components/ProblemSolving";
+import ResumeComponent from "./components/ResumeView";
 const App = () => {
   return (
     <BrowserRouter>
@@ -26,7 +27,7 @@ const App = () => {
         <Works />
 
         <ProblemSolving />
-
+        <ResumeComponent />
         <Feedbacks />
         <div className="relative z-0">
           <Contact />

@@ -1,23 +1,13 @@
+import { Image } from "@react-three/drei";
 import { skillsData } from "./Skill.js";
 import { skillsImage } from "./skill-image.js";
 import Marquee from "react-fast-marquee";
-
-function Skills() {
+import html from "../assets/skills/html.svg";
+function Skills({ clickHandler }) {
   console.log(skillsData);
   console.log(skillsImage);
   return (
-    <div
-      id="skills"
-      className="relative z-50 border-t my-12 lg:my-24 border-[#25213b]"
-    >
-      <div className="w-[100px] h-[100px] bg-violet-100 rounded-full absolute top-6 left-[42%] translate-x-1/2 filter blur-3xl  opacity-20"></div>
-
-      <div className="flex justify-center -translate-y-[1px]">
-        <div className="w-3/4">
-          <div className="h-[1px] bg-gradient-to-r from-transparent via-violet-500 to-transparent  w-full" />
-        </div>
-      </div>
-
+    <div id="skills">
       <div className="flex justify-center my-5 lg:py-8">
         <div className="flex  items-center">
           <span className="w-24 h-[2px] bg-[#1a1443]"></span>
@@ -26,6 +16,7 @@ function Skills() {
           </span>
           <span className="w-24 h-[2px] bg-[#1a1443]"></span>
         </div>
+        <button onClick={clickHandler}>Canvas View</button>
       </div>
 
       <div className="w-full my-12">
@@ -52,7 +43,7 @@ function Skills() {
                 <div className="flex flex-col items-center justify-center gap-3 p-6">
                   <div className="h-8 sm:h-10">
                     <img
-                      src={skillsImage(skill)?.src}
+                      src={skillsImage(skill)}
                       alt={skill}
                       width="40"
                       height="40"

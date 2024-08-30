@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
+import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { navLinks } from "../constants";
 import { logo, menu, close } from "../assets";
@@ -43,7 +43,7 @@ const Navbar = () => {
           }}
         >
           <img src={logo} alt="logo" className="w-12 h-12 object-contain" />
-          <p className="text-white text-[18px] font-bold cursor-pointer flex ">
+          <p className="text-white text-[18px] font-bold cursor-pointer flex">
             Shravan Janwade &nbsp;
             <span className="sm:block hidden"> | Software Developer</span>
           </p>
@@ -51,15 +51,29 @@ const Navbar = () => {
 
         <ul className="list-none hidden sm:flex flex-row gap-10">
           {navLinks.map((nav) => (
-            <li
+            <motion.li
               key={nav.id}
               className={`${
                 active === nav.title ? "text-white" : "text-secondary"
-              } hover:text-white text-[18px] font-medium cursor-pointer`}
+              } text-[18px] font-medium cursor-pointer`}
               onClick={() => setActive(nav.title)}
+              whileHover={{
+                scale: 1.1,
+                textShadow: "0px 4px 10px rgba(0, 182, 255, 0.75)",
+                boxShadow: "0px 4px 10px rgba(0, 182, 255, 0.5)",
+                background: "linear-gradient(90deg, #00b6ff 0%, #ff00ff 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                transition: {
+                  duration: 0.4,
+                  ease: "easeInOut",
+                },
+              }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 300 }}
             >
               <a href={`#${nav.id}`}>{nav.title}</a>
-            </li>
+            </motion.li>
           ))}
         </ul>
 
@@ -78,7 +92,7 @@ const Navbar = () => {
           >
             <ul className="list-none flex justify-end items-start flex-1 flex-col gap-4">
               {navLinks.map((nav) => (
-                <li
+                <motion.li
                   key={nav.id}
                   className={`font-poppins font-medium cursor-pointer text-[16px] ${
                     active === nav.title ? "text-white" : "text-secondary"
@@ -87,9 +101,24 @@ const Navbar = () => {
                     setToggle(!toggle);
                     setActive(nav.title);
                   }}
+                  whileHover={{
+                    scale: 1.1,
+                    textShadow: "0px 4px 10px rgba(0, 182, 255, 0.75)",
+                    boxShadow: "0px 4px 10px rgba(0, 182, 255, 0.5)",
+                    background:
+                      "linear-gradient(90deg, #00b6ff 0%, #ff00ff 100%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    transition: {
+                      duration: 0.4,
+                      ease: "easeInOut",
+                    },
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ type: "spring", stiffness: 300 }}
                 >
                   <a href={`#${nav.id}`}>{nav.title}</a>
-                </li>
+                </motion.li>
               ))}
             </ul>
           </div>
