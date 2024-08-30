@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { fadeIn, textVariant } from "../utils/motion";
 import LeetcodeDays from "../assets/LeetCodeDays.png";
 import LeetcodeBadge from "../assets/LeetcodeAnnual.png";
-import LeetcodeBadges from "../assets/Leetcode Badges.png";
+import LeetcodeBadges from "../assets/LeetcodeBadges.png";
 import hackerRank from "../assets/HackerRank.png";
 import GFG from "../assets/GeeksForGeeks.png";
 import { styles } from "../styles";

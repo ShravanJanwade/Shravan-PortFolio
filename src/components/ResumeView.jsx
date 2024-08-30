@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../styles/ResumeStyle.css";
-import resumeImage from "../assets/Shravan Resume.png"; // Adjust the path accordingly
+import resumeImage from "../assets/ShravanResume.png"; // Adjust the path accordingly
 import { Tilt } from "react-tilt";
 import { styles } from "../styles";
 import { textVariant } from "../utils/motion";
