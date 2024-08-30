@@ -1,7 +1,7 @@
 import { Carousel } from "@material-tailwind/react";
 import { motion } from "framer-motion";
 import { textVariant } from "../utils/motion";
-import LeetcodeDays from "../assets/LeetCodeDays.png";
+import LeetcodeDays from "../assets/LeetcodeDays.png";
 import LeetcodeBadge from "../assets/LeetcodeAnnual.png";
 import LeetcodeBadges from "../assets/LeetcodeBadges.png";
 import hackerRank from "../assets/HackerRank.png";
