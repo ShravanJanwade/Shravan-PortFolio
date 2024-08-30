@@ -21,7 +21,7 @@ const Tech = () => {
         <h2 className={styles.sectionHeadText}>My Skills.</h2>
       </motion.div>
       {technologies.map((technology) => (
-        <SkillModal technology={technology}>
+        <SkillModal technology={technology} key={technology.name}>
           <div className="w-28 h-28" key={technology.name} onClick={handleOpen}>
             <BallCanvas icon={technology.icon} name={technology.name} />
           </div>

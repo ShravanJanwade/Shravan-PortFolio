@@ -33,7 +33,7 @@ export default function SkillModal({ children, technology }) {
 
   return (
     <>
-      <Button onClick={handleOpen} variant="contained" color="primary">
+      <Button onClick={handleOpen} color="primary">
         {children}
       </Button>
       <Dialog
@@ -67,37 +67,28 @@ export default function SkillModal({ children, technology }) {
           </Typography>
           <div className="w-full">
             <div className="mb-2 flex items-center justify-between gap-4">
-              <Typography
-                className="text-gray-400 font-semibold"
-                variant="body2"
-              >
+              <Typography className="text-gray-400 font-semibold" variant="h4">
                 Foundation
               </Typography>
-              <Typography className="text-white font-semibold" variant="body2">
+              <Typography className="text-white font-semibold" variant="h4">
                 {foundation}%
               </Typography>
             </div>
             <Progress color="green" value={foundation} />
             <div className="mb-2 flex items-center justify-between gap-4">
-              <Typography
-                className="text-gray-400 font-semibold"
-                variant="body2"
-              >
+              <Typography className="text-gray-400 font-semibold" variant="h4">
                 Intermediate Topics
               </Typography>
-              <Typography className="text-white font-semibold" variant="body2">
+              <Typography className="text-white font-semibold" variant="h4">
                 {intermediate}%
               </Typography>
             </div>
             <Progress color="green" value={intermediate} />
             <div className="mb-2 flex items-center justify-between gap-4">
-              <Typography
-                className="text-gray-400 font-semibold"
-                variant="body2"
-              >
+              <Typography className="text-gray-400 font-semibold" variant="h4">
                 Advance Topics
               </Typography>
-              <Typography className="text-white font-semibold" variant="body2">
+              <Typography className="text-white font-semibold" variant="h4">
                 {advance}%
               </Typography>
             </div>
@@ -108,7 +99,7 @@ export default function SkillModal({ children, technology }) {
               <Typography className="text-gray-400 font-semibold">
                 Skill Market Popularity
               </Typography>
-              <Typography className="text-white font-semibold" variant="body2">
+              <Typography className="text-white font-semibold" variant="h4">
                 {popularity}%
               </Typography>
               <Progress
@@ -121,7 +112,7 @@ export default function SkillModal({ children, technology }) {
               <Typography className="text-gray-400">
                 Number of Active Users
               </Typography>
-              <Typography className="text-white font-semibold" variant="body2">
+              <Typography className="text-white font-semibold" variant="h4">
                 {activeUsers}
               </Typography>
             </div>
@@ -132,7 +123,7 @@ export default function SkillModal({ children, technology }) {
             <InformationCircleIcon className="h-5 w-5 text-gray-400" />
             The sources are from Stack Overflow survey.
           </Typography>
-          <Button onClick={handleWebDocs} variant="contained" color="primary">
+          <Button onClick={handleWebDocs} color="primary">
             Know More
           </Button>
         </DialogFooter>
