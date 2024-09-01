@@ -229,9 +229,9 @@ const experiences = [
     iconBg: "#383E56",
     date: "March 2024 - Present",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
+      "Was Part of Torry harris digit product team and built the frontend and ui for torry harris marketplace",
       "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
+      "Contributed Significantly to the organization's own learning management system frontend and ui using react and material tailwind.",
       "Participating in code reviews and providing constructive feedback to other developers.",
     ],
   },
@@ -243,7 +243,7 @@ const experiences = [
     date: "September 2023 - March 2024",
     points: [
       "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
+      "Build Project and task management system called pro collab used in the organization",
       "Implementing responsive design and ensuring cross-browser compatibility.",
       "Participating in code reviews and providing constructive feedback to other developers.",
     ],
@@ -255,10 +255,10 @@ const experiences = [
     iconBg: "#383E56",
     date: "July 2022 - September 2022",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Learnt About the Use case of AI and Ml and it advantages and disadvantages",
+      "Learnt about the building ai models using python and it's libraries like pandas,sci-kit learn,matplotlib etc..",
+      "Build mulitple Machine Learning projects like employee salary prediction using linear regression",
+      "Created mulitple contribution in researching the ml models and improving it's efficency",
     ],
   },
   {
@@ -269,9 +269,9 @@ const experiences = [
     date: "February 2022 - March 2022",
     points: [
       "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
+      "Created fronted projects like clone of google keep and many other static pages.",
       "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Learnt many frontend technologies like html,css,js and bootstrap and implemented in real life projects.",
     ],
   },
 ];
@@ -279,26 +279,26 @@ const experiences = [
 const testimonials = [
   {
     testimonial:
-      "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
-    name: "Sara Lee",
-    designation: "CFO",
-    company: "Acme Co",
+      "I thought it was impossible to make a website as beautiful as our product, but Shravan proved me wrong.",
+    name: "Rohit Biradar",
+    designation: "Springboot Developer",
+    company: "Torry Harris Integration Solutions",
     image: "https://randomuser.me/api/portraits/women/4.jpg",
   },
   {
     testimonial:
-      "I've never met a web developer who truly cares about their clients' success like Rick does.",
-    name: "Chris Brown",
-    designation: "COO",
-    company: "DEF Corp",
+      "I've never met a web developer who truly cares about their team's success like Shravan does.",
+    name: "Ritesh Rao V",
+    designation: "Full Stack Developer",
+    company: "Torry Harris Integration Solutions",
     image: "https://randomuser.me/api/portraits/men/5.jpg",
   },
   {
     testimonial:
-      "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
-    name: "Lisa Wang",
-    designation: "CTO",
-    company: "456 Enterprises",
+      "After Shravan optimized our website, our traffic increased by 50%. We can't thank them enough!",
+    name: "Karthik Kavathekar",
+    designation: "Backend Developer ",
+    company: "Torry Harris Integration Solutions",
     image: "https://randomuser.me/api/portraits/women/6.jpg",
   },
 ];

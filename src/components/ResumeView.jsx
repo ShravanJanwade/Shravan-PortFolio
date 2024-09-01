@@ -1,17 +1,16 @@
 import React, { useState } from "react";
 import "../styles/ResumeStyle.css";
 import resumeImage from "../assets/ShravanResume.png"; // Adjust the path accordingly
+import resumePDF from "../assets/ShravanResume.pdf"; // Import the PDF file
 import { Tilt } from "react-tilt";
 import { styles } from "../styles";
 import { textVariant } from "../utils/motion";
 import { motion } from "framer-motion";
 import { Tooltip } from "@material-tailwind/react";
-import { jsPDF } from "jspdf";
 import { SectionWrapper } from "../hoc";
 
 const ResumeComponent = () => {
   const [isHovered, setIsHovered] = useState(false);
-  const [isClicked, setIsClicked] = useState(false);
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -21,30 +20,17 @@ const ResumeComponent = () => {
     setIsHovered(false);
   };
 
-  const handleClick = () => {
-    setIsClicked(true);
+  const handleViewResume = () => {
+    // Open the PDF in a new tab
+    window.open(resumePDF);
   };
 
-  const handleClose = () => {
-    setIsClicked(false);
-  };
-
-  const handleDownloadPDF = () => {
-    const pdf = new jsPDF();
-    const imgData = resumeImage;
-
-    // Adding the image to the PDF (full page size)
-    pdf.addImage(
-      imgData,
-      "PNG",
-      0,
-      0,
-      pdf.internal.pageSize.getWidth(),
-      pdf.internal.pageSize.getHeight()
-    );
-
-    // Save the PDF
-    pdf.save("My_Resume.pdf");
+  const handleDownloadResume = () => {
+    // Trigger download of the PDF
+    const link = document.createElement("a");
+    link.href = resumePDF;
+    link.download = "ShravanResume.pdf";
+    link.click();
   };
 
   return (
@@ -58,28 +44,20 @@ const ResumeComponent = () => {
         options={{ max: 25, scale: 1.05, speed: 300 }}
         style={{ width: "300px", marginTop: "20px" }}
       >
-        <Tooltip content="Click to download" placement="bottom">
+        <Tooltip content="Click to view fullscreen" placement="bottom">
           <img
             src={resumeImage}
             alt="Resume"
             className={`resume ${isHovered ? "hovered" : ""}`}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            onClick={handleClick}
+            onClick={handleViewResume}
           />
         </Tooltip>
       </Tilt>
-      {isClicked && (
-        <div className="resume-fullscreen">
-          <div className="resume-close" onClick={handleClose}>
-            &times;
-          </div>
-          <img src={resumeImage} alt="Full Resume" className="resume-full" />
-          <button onClick={handleDownloadPDF} className="download-button">
-            Download as PDF
-          </button>
-        </div>
-      )}
+      <button onClick={handleDownloadResume} className="download-button mt-5">
+        Download Resume
+      </button>
     </div>
   );
 };
