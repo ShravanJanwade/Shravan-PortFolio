@@ -33,7 +33,7 @@ export default function SkillModal({ children, technology }) {
 
   return (
     <>
-      <Button onClick={handleOpen} color="primary">
+      <Button onClick={handleOpen} color="gray">
         {children}
       </Button>
       <Dialog
@@ -123,7 +123,7 @@ export default function SkillModal({ children, technology }) {
             <InformationCircleIcon className="h-5 w-5 text-gray-400" />
             The sources are from Stack Overflow survey.
           </Typography>
-          <Button onClick={handleWebDocs} color="primary">
+          <Button onClick={handleWebDocs} color="gray">
             Know More
           </Button>
         </DialogFooter>

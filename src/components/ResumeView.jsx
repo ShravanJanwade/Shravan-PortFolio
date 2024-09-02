@@ -8,6 +8,7 @@ import { textVariant } from "../utils/motion";
 import { motion } from "framer-motion";
 import { Tooltip } from "@material-tailwind/react";
 import { SectionWrapper } from "../hoc";
+import DownloadButton from "./DownloadButton";
 
 const ResumeComponent = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -44,7 +45,7 @@ const ResumeComponent = () => {
         options={{ max: 25, scale: 1.05, speed: 300 }}
         style={{ width: "300px", marginTop: "20px" }}
       >
-        <Tooltip content="Click to view fullscreen" placement="bottom">
+        <Tooltip content="Click to view fullscreen" placement="right">
           <img
             src={resumeImage}
             alt="Resume"
@@ -55,9 +56,7 @@ const ResumeComponent = () => {
           />
         </Tooltip>
       </Tilt>
-      <button onClick={handleDownloadResume} className="download-button mt-5">
-        Download Resume
-      </button>
+      <DownloadButton clickHandler={handleDownloadResume} />
     </div>
   );
 };

@@ -47,19 +47,18 @@ export const navLinks = [
 const services = [
   {
     title: "Web Developer",
+    description: "Create Full responsive web pages and ui design.",
     icon: web,
   },
   {
     title: "React  Developer",
+    description: "Can create single page application using reactjs.",
     icon: mobile,
   },
   {
     title: "Backend Developer",
+    description: "Design and build entire database and backend api.",
     icon: backend,
-  },
-  {
-    title: "Problem Solver",
-    icon: creator,
   },
 ];
 const technologies = [

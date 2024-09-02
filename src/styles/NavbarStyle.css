@@ -1,0 +1,38 @@
+.nav-item {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  padding: 10px; /* Add some padding for a more spacious feel */
+}
+
+.nav-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid transparent;
+  border-radius: 6px; /* Slightly rounded corners for a more elegant look */
+  transition: all 0.4s ease-in-out;
+  pointer-events: none;
+}
+
+.nav-item:hover::before {
+  border-color: #00b6ff; /* Premium color for the border */
+  box-shadow: 0 0 10px rgba(0, 182, 255, 0.5); /* Subtle glow effect */
+  transform: rotate(0.5turn);
+}
+
+.nav-item a {
+  position: relative;
+  z-index: 1;
+  text-decoration: none;
+  color: #ffffff; /* Ensure text is readable on hover */
+  font-weight: 500; /* Slightly bolder text for emphasis */
+  transition: color 0.4s ease-in-out;
+}
+
+.nav-item:hover a {
+  color: #00b6ff; /* Change text color on hover for consistency */
+}

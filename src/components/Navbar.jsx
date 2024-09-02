@@ -6,7 +6,7 @@ import { navLinks } from "../constants";
 import { logo, menu, close } from "../assets";
 import { TbSocial } from "react-icons/tb";
 import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
-
+import "../styles/NavbarStyle.css";
 const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
@@ -40,22 +40,11 @@ const Navbar = () => {
           {navLinks.map((nav) => (
             <motion.li
               key={nav.id}
-              className={`${
+              className={`nav-item ${
                 active === nav.title ? "text-white" : "text-secondary"
               } text-[18px] font-medium cursor-pointer`}
               onClick={() => setActive(nav.title)}
-              whileHover={{
-                scale: 1.1,
-                textShadow: "0px 4px 10px rgba(0, 182, 255, 0.75)",
-                boxShadow: "0px 4px 10px rgba(0, 182, 255, 0.5)",
-                background: "linear-gradient(90deg, #00b6ff 0%, #ff00ff 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                transition: {
-                  duration: 0.4,
-                  ease: "easeInOut",
-                },
-              }}
+              whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
@@ -67,7 +56,7 @@ const Navbar = () => {
         {/* Social Media Dropdown */}
         <div className="relative flex items-center">
           <div
-            className="p-2" // Added padding to the clickable area
+            className="p-2"
             onMouseEnter={() => setDropdownOpen(true)}
             onMouseLeave={() => setDropdownOpen(false)}
           >
@@ -136,26 +125,14 @@ const Navbar = () => {
               {navLinks.map((nav) => (
                 <motion.li
                   key={nav.id}
-                  className={`font-poppins font-medium cursor-pointer text-[16px] ${
+                  className={`nav-item font-poppins font-medium cursor-pointer text-[16px] ${
                     active === nav.title ? "text-white" : "text-secondary"
                   }`}
                   onClick={() => {
                     setToggle(!toggle);
                     setActive(nav.title);
                   }}
-                  whileHover={{
-                    scale: 1.1,
-                    textShadow: "0px 4px 10px rgba(0, 182, 255, 0.75)",
-                    boxShadow: "0px 4px 10px rgba(0, 182, 255, 0.5)",
-                    background:
-                      "linear-gradient(90deg, #00b6ff 0%, #ff00ff 100%)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    transition: {
-                      duration: 0.4,
-                      ease: "easeInOut",
-                    },
-                  }}
+                  whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >

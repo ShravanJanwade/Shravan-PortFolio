@@ -6,6 +6,7 @@ import { styles } from "../styles";
 import { services } from "../constants";
 import { SectionWrapper } from "../hoc";
 import { fadeIn, textVariant } from "../utils/motion";
+import UiCard from "./UiCard";
 
 const ServiceCard = ({ index, title, icon }) => (
   <Tilt className="xs:w-[250px] w-full">
@@ -56,7 +57,7 @@ const About = () => {
 
       <div className="mt-20 flex flex-wrap gap-10">
         {services.map((service, index) => (
-          <ServiceCard key={service.title} index={index} {...service} />
+          <UiCard key={service.title} index={index} {...service} />
         ))}
       </div>
     </>
