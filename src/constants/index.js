@@ -60,6 +60,12 @@ const services = [
     description: "Design and build entire database and backend api.",
     icon: backend,
   },
+  {
+    title: "Problem Solver",
+    description:
+      "Critical Thinking and solve problem by thinking outside the box.",
+    icon: backend,
+  },
 ];
 const technologies = [
   {
