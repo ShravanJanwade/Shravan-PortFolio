@@ -10,7 +10,7 @@ import { SectionWrapper } from "../hoc";
 import DialogWithImage from "./CarouselDialog";
 function ProblemSolving() {
   return (
-    <div>
+    <div style={{ marginTop: "-90px" }}>
       <motion.div
         variants={textVariant()}
         className="flex items-center space-x-4"

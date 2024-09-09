@@ -1,41 +1,45 @@
 import React from "react";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import {
   About,
   Contact,
-  Experience,
   Feedbacks,
   Hero,
   Navbar,
   Tech,
-  Works,
+  Work,
 } from "./components";
 import StarsCanvas from "./components/canvas/Stars";
 import ProblemSolving from "./components/ProblemSolving";
 import ResumeComponent from "./components/ResumeView";
-const App = () => {
-  return (
-    <BrowserRouter>
-      <div className="relative z-0 bg-primary">
-        <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
-          <Navbar />
-          <Hero />
-        </div>
-        <About />
-        <Experience />
-        <Tech />
-        <Works />
+import ProjectPage from "./components/ProjectPage";
+import PersonalProject from "./components/PersonalProject";
+const HomePage = () => (
+  <div className="relative z-0 bg-primary">
+    <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
+      <Navbar />
+      <Hero />
+    </div>
+    <About />
+    <Work />
+    <Tech />
+    <PersonalProject />
+    <ProblemSolving />
+    <ResumeComponent />
+    <Feedbacks />
+    <div className="relative z-0">
+      <Contact />
+      <StarsCanvas />
+    </div>
+  </div>
+);
 
-        <ProblemSolving />
-        <ResumeComponent />
-        <Feedbacks />
-        <div className="relative z-0">
-          <Contact />
-          <StarsCanvas />
-        </div>
-      </div>
-    </BrowserRouter>
-  );
-};
-
+const App = () => (
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/projects" element={<ProjectPage />} />
+    </Routes>
+  </BrowserRouter>
+);
 export default App;

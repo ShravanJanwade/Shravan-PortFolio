@@ -1,0 +1,41 @@
+/* From Uiverse.io by SalladShooter */ 
+.button {
+    cursor: pointer;
+    padding: 1em;
+    font-size: 1em;
+    width: 15em;
+    aspect-ratio: 1/0.25;
+    color: white;
+    background: #050505;
+    background-size: cover;
+    background-blend-mode: overlay;
+    border-radius: 0.5em;
+    outline: 0.1em solid #1c1c1c;
+    border: 0;
+    box-shadow: 0 0 1em 1em rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    position: relative;
+  }
+  
+  .button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 1em 0.45em rgba(0, 0, 0, 0.1);
+    background: linear-gradient(45deg, #212121, #252525);
+    background: radial-gradient(
+      circle at bottom,
+      rgba(50, 100, 180, 0.5) 10%,
+      #212121 70%
+    );
+    outline: 0;
+  }
+  
+  .icon {
+    fill: white;
+    width: 1em;
+    aspect-ratio: 1;
+    top: 0;
+    left: 0;
+    margin: auto;
+    transform: translate(-35%, 10%);
+  }
+  

@@ -1,8 +1,9 @@
-import React, { Suspense, useEffect, useState } from "react";
+import React, { Suspense, useEffect, useRef, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 
 import CanvasLoader from "../Loader";
+import useWebGLContext from "../../hooks/useWebGLContext";
 
 const Computers = ({ isMobile }) => {
   const computer = useGLTF("./desktop_pc/scene.gltf");
@@ -31,7 +32,8 @@ const Computers = ({ isMobile }) => {
 
 const ComputersCanvas = () => {
   const [isMobile, setIsMobile] = useState(false);
-
+  const heroRef = useRef();
+  useWebGLContext(heroRef);
   useEffect(() => {
     // Add a listener for changes to the screen size
     const mediaQuery = window.matchMedia("(max-width: 500px)");
@@ -55,6 +57,8 @@ const ComputersCanvas = () => {
 
   return (
     <Canvas
+      id="hero-canvas"
+      ref={heroRef}
       frameloop="demand"
       shadows
       dpr={[1, 2]}
