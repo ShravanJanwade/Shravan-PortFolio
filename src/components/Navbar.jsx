@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { navLinks } from "../constants";
 import { logo, menu, close } from "../assets";
+import { CIcon } from '@coreui/icons-react';
+import {cibLeetcode} from '@coreui/icons';
 import { TbSocial } from "react-icons/tb";
 import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 import "../styles/NavbarStyle.css";
@@ -55,60 +57,32 @@ const Navbar = () => {
 
         {/* Social Media Dropdown */}
         <div className="relative flex items-center">
-          <div
-            className="p-2"
-            onMouseEnter={() => setDropdownOpen(true)}
-            onMouseLeave={() => setDropdownOpen(false)}
-          >
-            <TbSocial
-              className="text-white text-2xl cursor-pointer"
-              onClick={() => setDropdownOpen(!dropdownOpen)}
-            />
-            <motion.div
-              className={`${
-                dropdownOpen ? "flex" : "hidden"
-              } absolute top-full right-0 mt-1 p-2 w-[40px] flex-col items-center gap-4 bg-black-800 rounded-md`}
-              initial={{ opacity: 0, y: -10 }}
-              animate={{
-                opacity: dropdownOpen ? 1 : 0,
-                y: dropdownOpen ? 0 : -10,
-              }}
-              transition={{ duration: 0.2 }}
-              onMouseEnter={() => setDropdownOpen(true)}
-              onMouseLeave={() => setDropdownOpen(false)}
+          <div className="p-2 flex gap-4 mt-3">
+            <a
+              href="https://github.com/ShravanJanwade"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <motion.a
-                href="https://github.com/ShravanJanwade"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.2 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <FaGithub className="text-white text-xl" />
-              </motion.a>
-              <motion.a
-                href="https://www.linkedin.com/in/shravankumar-janawade-45bbb0200/"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.2 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <FaLinkedin className="text-white text-xl" />
-              </motion.a>
-              <motion.a
-                href="https://instagram.com/janwadeshravan"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.2 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <FaInstagram className="text-white text-xl" />
-              </motion.a>
-            </motion.div>
+              <FaGithub className="text-white text-2xl hover:text-gray-500" />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/shravankumar-janawade-45bbb0200/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaLinkedin className="text-white text-2xl" />
+            </a>
+            <a
+              href="https://leetcode.com/u/shravanJanwade/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <CIcon className="text-white text-2xl hover:text-gray-500 ml-1 mb-5 h-5"  icon={cibLeetcode} />
+            </a>
           </div>
         </div>
 
-        <div className="sm:hidden flex flex-1 justify-end items-center">
+        <div className="sm:hidden flex flex-1 justify-end items-center hover:text-gray-400">
           <img
             src={toggle ? close : menu}
             alt="menu"

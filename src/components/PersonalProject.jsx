@@ -96,7 +96,7 @@ const PersonalProject = () => {
         ))}
       </div>
 
-      <motion.div
+      {/* <motion.div
         variants={textVariant()}
         // initial="hidden"
         animate="visible"
@@ -106,7 +106,7 @@ const PersonalProject = () => {
         <Link to="/projects">
           <SeeMore />
         </Link>
-      </motion.div>
+      </motion.div> */}
     </>
   );
 };
