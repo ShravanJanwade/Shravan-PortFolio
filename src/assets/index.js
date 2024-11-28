@@ -37,6 +37,9 @@ import thdp from "./company/this.jfif";
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
+import Snapgram from "./Projects/Snapgram.png";
+import KBC from "./Projects/KBC.png";
+import ProCollab from "./Projects/ProCollab.png";
 
 export {
   logo,
@@ -67,6 +70,9 @@ export {
   carrent,
   jobit,
   tripguide,
+  ProCollab,
+  Snapgram,
+  KBC,
   thdp,
   upskillz,
   indoskill,

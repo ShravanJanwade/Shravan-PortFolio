@@ -23,6 +23,9 @@ import {
   thdp,
   upskillz,
   indoskill,
+  Snapgram,
+  KBC,
+  ProCollab,
 } from "../assets";
 
 export const navLinks = [
@@ -521,7 +524,7 @@ const projects = [
         color: "green-text-gradient",
       },
     ],
-    image: carrent,
+    image: ProCollab,
     source_code_link:
       "https://github.com/ShravanJanwade/Pro-Collab-Application",
   },
@@ -543,7 +546,7 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: jobit,
+    image: Snapgram,
     source_code_link: "https://github.com/ShravanJanwade/InstaChat",
   },
   {
@@ -564,7 +567,7 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: tripguide,
+    image: KBC,
     source_code_link: "https://github.com/ShravanJanwade/KBC",
   },
 ];
