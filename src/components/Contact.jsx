@@ -1,13 +1,17 @@
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import emailjs from "@emailjs/browser";
-
 import { styles } from "../styles";
 import { EarthCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
+import emailjs from "emailjs-com"; // Import EmailJS
 
+const EMAIL_SERVICE=import.meta.env.VITE_EMAILJS_SERVICE_ID
+const EMAIL_TEMPLATE_RECIEVED=import.meta.env.VITE_EMAILJS_TEMPLATE_ID_RECIEVED
+const EMAIL_TEMPLATE_AUTO_REPLY=import.meta.env.VITE_EMAILJS_TEMPLATE_ID_AUTO_REPLY
+const EMAIL_PUBLIC_KEY=import.meta.env.VITE_EMAILJS_PUBLIC_KEY
 const Contact = () => {
+  const [showModal, setShowModal] = useState(false); // State for modal
   const formRef = useRef();
   const [form, setForm] = useState({
     name: "",
@@ -18,8 +22,7 @@ const Contact = () => {
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
-    const { target } = e;
-    const { name, value } = target;
+    const { name, value } = e.target;
 
     setForm({
       ...form,
@@ -28,44 +31,56 @@ const Contact = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Prevent default form submission
     setLoading(true);
-    // EMAILJS_SERVICE_ID=service_hpas5g4
-    // EMAILJS_TEMPLATE_ID=template_cub5evh
-    // EMAILJS_PUBLIC_KEY=pmGoHXuNgCUkl2DRj
+  
+    // Send the main email
     emailjs
       .send(
-        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+        EMAIL_SERVICE, // Your EmailJS Service ID
+        EMAIL_TEMPLATE_RECIEVED, // Your EmailJS Template ID
         {
           from_name: form.name,
-          to_name: "Shravankumar Janawade",
           from_email: form.email,
-          to_email: "shravanjanwade2252@gmail.com",
           message: form.message,
         },
-        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+        EMAIL_PUBLIC_KEY // Your EmailJS Public Key (User ID)
       )
       .then(
         () => {
-          setLoading(false);
-          alert("Thank you. I will get back to you as soon as possible.");
+          // Send the auto-reply email
+          emailjs
+            .send(
+              EMAIL_SERVICE, // Your EmailJS Service ID
+              EMAIL_TEMPLATE_AUTO_REPLY, // Replace with your auto-reply Template ID
+              {
+                to_name: form.name, // Recipient's name
+                to_email: form.email, // Recipient's email
+              },
+              EMAIL_PUBLIC_KEY // Your EmailJS Public Key (User ID)
+            )
+            .then(() => {
+              setLoading(false);
+              // alert("Message sent successfully! A confirmation email has been sent to your address.");
+              setShowModal(true); // Show modal on success
+              setForm({ name: "", email: "", message: "" }); // Reset the form
+              setTimeout(() => setShowModal(false), 3000);
 
-          setForm({
-            name: "",
-            email: "",
-            message: "",
-          });
+            })
+            .catch((error) => {
+              console.error("Error sending auto-reply:", error);
+              alert("Message sent successfully, but the confirmation email could not be sent.");
+              setLoading(false);
+            });
         },
         (error) => {
           setLoading(false);
-          console.error(error);
-
-          alert("Ahh, something went wrong. Please try again.");
+          console.error("Error sending email:", error);
+          alert("Failed to send message. Please try again.");
         }
       );
   };
-
+  
   return (
     <div
       className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden`}
@@ -131,6 +146,27 @@ const Contact = () => {
       >
         <EarthCanvas />
       </motion.div>
+      {showModal && (
+        <motion.div
+          className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
+          <div className="bg-primary p-8 rounded-lg shadow-lg text-center">
+            <motion.div
+              className="text-green-500 text-5xl mb-4"
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ type: "spring", stiffness: 500, damping: 20 }}
+            >
+              ✔
+            </motion.div>
+            <h2 className="text-xl font-bold mb-2">Message Sent Successfully!</h2>
+            <p className="text-gray-600">I will reply as fast as possible.</p>
+          </div>
+        </motion.div>
+      )}
     </div>
   );
 };

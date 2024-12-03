@@ -19,6 +19,7 @@
     "@react-three/drei": "^9.111.2",
     "@react-three/fiber": "^8.17.5",
     "@types/three": "^0.168.0",
+    "emailjs-com": "^3.2.0",
     "framer-motion": "^11.3.28",
     "gsap": "^3.12.5",
     "heroicons": "^2.1.5",

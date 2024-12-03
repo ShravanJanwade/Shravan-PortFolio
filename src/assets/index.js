@@ -40,7 +40,9 @@ import tripguide from "./tripguide.png";
 import Snapgram from "./Projects/Snapgram.png";
 import KBC from "./Projects/KBC.png";
 import ProCollab from "./Projects/ProCollab.png";
-
+import Rohit from "./Recommender/Rohit.jpg"
+import Ritesh from "./Recommender/Ritesh.jpg"
+import Karthik from "./Recommender/Karthik.jpg"
 export {
   logo,
   backend,
@@ -80,4 +82,7 @@ export {
   springboot,
   mysql,
   python,
+  Rohit,
+  Ritesh,
+  Karthik
 };

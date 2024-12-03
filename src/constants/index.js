@@ -16,9 +16,6 @@ import {
   java,
   springboot,
   mysql,
-  carrent,
-  jobit,
-  tripguide,
   git,
   thdp,
   upskillz,
@@ -26,6 +23,9 @@ import {
   Snapgram,
   KBC,
   ProCollab,
+  Rohit,
+  Ritesh,
+  Karthik
 } from "../assets";
 
 export const navLinks = [
@@ -479,31 +479,35 @@ const experiences = [
 ];
 
 const testimonials = [
+ 
   {
     testimonial:
-      "I thought it was impossible to make a website as beautiful as our product, but Shravan proved me wrong.",
-    name: "Rohit Biradar",
-    designation: "Springboot Developer",
-    company: "Torry Harris Integration Solutions",
-    image: "https://randomuser.me/api/portraits/women/4.jpg",
-  },
-  {
-    testimonial:
-      "I've never met a web developer who truly cares about their team's success like Shravan does.",
+      "Shravan brings a rare combination of technical expertise and design finesse. His collaborative approach has significantly improved our team's productivity and project outcomes.",
     name: "Ritesh Rao V",
     designation: "Full Stack Developer",
     company: "Torry Harris Integration Solutions",
-    image: "https://randomuser.me/api/portraits/men/5.jpg",
+    image: Ritesh,
+    link:'https://www.linkedin.com/in/ritesh-rao-v-6251b5191/'
   },
   {
     testimonial:
-      "After Shravan optimized our website, our traffic increased by 50%. We can't thank them enough!",
+      "Shravan’s frontend contributions have elevated the quality of our projects. His designs not only look great but are also highly functional, helping us exceed client expectations.",
     name: "Karthik Kavathekar",
-    designation: "Backend Developer ",
+    designation: "Backend Developer",
     company: "Torry Harris Integration Solutions",
-    image: "https://randomuser.me/api/portraits/women/6.jpg",
-  },
+    image: Karthik,
+    link:'https://www.linkedin.com/in/karthik-kavathekar-807963227/'
+  }, {
+    testimonial:
+      "Working with Shravan on our internal tools was a game-changer. His ability to create intuitive, visually appealing interfaces is unmatched. He truly understands the user's perspective.",
+    name: "Rohit Biradar",
+    designation: "Spring Boot Developer",
+    company: "Torry Harris Integration Solutions",
+    image: Rohit,
+    link:'https://www.linkedin.com/in/rohit-biradar-46b53a245/'
+  }
 ];
+
 
 const projects = [
   {

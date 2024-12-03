@@ -13,35 +13,47 @@ const FeedbackCard = ({
   designation,
   company,
   image,
-}) => (
-  <motion.div
-    variants={fadeIn("", "spring", index * 0.5, 0.75)}
-    className='bg-black-200 p-10 rounded-3xl xs:w-[320px] w-full'
-  >
-    <p className='text-white font-black text-[48px]'>"</p>
+  link,
+}) => {
+  const navigateHandler = () => {
+    window.open(link)
+  };
+  return (
+    <motion.div
+      variants={fadeIn("", "spring", index * 0.5, 0.75)}
+      className="bg-black-200 p-10 rounded-3xl xs:w-[340px] w-full flex-shrink-0"
+    >
+      <p className="text-white font-black text-[48px]">"</p>
 
-    <div className='mt-1'>
-      <p className='text-white tracking-wider text-[18px]'>{testimonial}</p>
+      <div className="mt-1">
+        <p className="text-white tracking-wider text-[18px]">{testimonial}</p>
 
-      <div className='mt-7 flex justify-between items-center gap-1'>
-        <div className='flex-1 flex flex-col'>
-          <p className='text-white font-medium text-[16px]'>
-            <span className='blue-text-gradient'>@</span> {name}
-          </p>
-          <p className='mt-1 text-secondary text-[12px]'>
-            {designation} of {company}
-          </p>
+        <div className="mt-7 flex justify-between items-center gap-1">
+          <div className="flex-1 flex flex-col">
+            <p className="text-white font-medium text-[16px]">
+              <span
+                className="blue-text-gradient hover:cursor-pointer"
+                onClick={navigateHandler}
+              >
+                @
+              </span>{" "}
+              <span onClick={navigateHandler} className="hover:cursor-pointer hover:border-b border-b-blue"> {name}</span>
+            </p>
+            <p className="mt-1 text-secondary text-[12px]">
+              {designation} of {company}
+            </p>
+          </div>
+
+          <img
+            src={image}
+            alt={`feedback_by-${name}`}
+            className="w-10 h-10 rounded-full object-cover"
+          />
         </div>
-
-        <img
-          src={image}
-          alt={`feedback_by-${name}`}
-          className='w-10 h-10 rounded-full object-cover'
-        />
       </div>
-    </div>
-  </motion.div>
-);
+    </motion.div>
+  );
+};
 
 const Feedbacks = () => {
   return (
@@ -54,10 +66,23 @@ const Feedbacks = () => {
           <h2 className={styles.sectionHeadText}>Testimonials.</h2>
         </motion.div>
       </div>
-      <div className={`-mt-20 pb-14 ${styles.paddingX} flex flex-wrap gap-7`}>
-        {testimonials.map((testimonial, index) => (
-          <FeedbackCard key={testimonial.name} index={index} {...testimonial} />
-        ))}
+
+      <div className="relative -mt-20 pb-14">
+        <div className="flex gap-7 overflow-x-hidden">
+          <motion.div
+            // drag="x"
+            // dragConstraints={{ left: -1200, right: 0 }} // Adjust based on the number of cards
+            className="flex gap-7 cursor-grab px-4"
+          >
+            {testimonials.map((testimonial, index) => (
+              <FeedbackCard
+                key={testimonial.name}
+                index={index}
+                {...testimonial}
+              />
+            ))}
+          </motion.div>
+        </div>
       </div>
     </div>
   );
