@@ -62,7 +62,7 @@ const Hero = () => {
       </div>
 
       {/* Conditionally render the 3D model or fallback animation */}
-      {!isMobile || !isLowPowerDevice ? (
+      {!isMobile ? (
         <ComputersCanvas />
       ) : (
         <div>
