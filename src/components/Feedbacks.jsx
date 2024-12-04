@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 
 import { styles } from "../styles";
@@ -16,7 +16,7 @@ const FeedbackCard = ({
   link,
 }) => {
   const navigateHandler = () => {
-    window.open(link)
+    window.open(link);
   };
   return (
     <motion.div
@@ -26,7 +26,9 @@ const FeedbackCard = ({
       <p className="text-white font-black text-[48px]">"</p>
 
       <div className="mt-1">
-        <p className="text-white tracking-wider text-[18px]">{testimonial}</p>
+        <p className="text-white tracking-wider text-[18px] -mt-9">
+          {testimonial}
+        </p>
 
         <div className="mt-7 flex justify-between items-center gap-1">
           <div className="flex-1 flex flex-col">
@@ -37,7 +39,13 @@ const FeedbackCard = ({
               >
                 @
               </span>{" "}
-              <span onClick={navigateHandler} className="hover:cursor-pointer hover:border-b border-b-blue"> {name}</span>
+              <span
+                onClick={navigateHandler}
+                className="hover:cursor-pointer hover:border-b border-b-blue"
+              >
+                {" "}
+                {name}
+              </span>
             </p>
             <p className="mt-1 text-secondary text-[12px]">
               {designation} of {company}
@@ -56,8 +64,25 @@ const FeedbackCard = ({
 };
 
 const Feedbacks = () => {
+  const containerRef = useRef(null);
+  const [dragConstraints, setDragConstraints] = useState({ left: 0, right: 0 });
+
+  useEffect(() => {
+    if (containerRef.current && testimonials.length > 0) {
+      const containerWidth = containerRef.current.scrollWidth;
+      const viewportWidth = containerRef.current.offsetWidth;
+
+      // Calculate the drag constraint dynamically
+      setDragConstraints({
+        left: -(containerWidth - viewportWidth), // Prevent dragging beyond the last card
+        right: 0, // Allow dragging only to the right
+      });
+    }
+  }, [testimonials]);
+
+  const isDraggable = testimonials.length > 1;
   return (
-    <div className={`mt-12 bg-black-100 rounded-[20px]`}>
+    <div className={`mt-0 bg-black-100 rounded-[20px] sm:-mt-48`}>
       <div
         className={`bg-tertiary rounded-2xl ${styles.padding} min-h-[300px]`}
       >
@@ -67,12 +92,15 @@ const Feedbacks = () => {
         </motion.div>
       </div>
 
-      <div className="relative -mt-20 pb-14">
+      <div className="relative -mt-28 pb-14">
         <div className="flex gap-7 overflow-x-hidden">
           <motion.div
-            // drag="x"
-            // dragConstraints={{ left: -1200, right: 0 }} // Adjust based on the number of cards
-            className="flex gap-7 cursor-grab px-4"
+            ref={containerRef}
+            drag={isDraggable ? "x" : false}
+            dragConstraints={isDraggable ? dragConstraints : undefined}
+            className={`flex flex-col sm:flex-row gap-7 ${
+              isDraggable ? "cursor-grab" : ""
+            } px-4 overflow-hidden`}
           >
             {testimonials.map((testimonial, index) => (
               <FeedbackCard

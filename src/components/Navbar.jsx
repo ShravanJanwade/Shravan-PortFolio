@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { navLinks } from "../constants";
 import { logo, menu, close } from "../assets";
-import { CIcon } from '@coreui/icons-react';
-import {cibLeetcode} from '@coreui/icons';
+import { CIcon } from "@coreui/icons-react";
+import { cibLeetcode } from "@coreui/icons";
 import { TbSocial } from "react-icons/tb";
 import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 import "../styles/NavbarStyle.css";
@@ -27,12 +27,12 @@ const Navbar = () => {
   }, []);
   return (
     <nav
-    className={`${
-      styles.paddingX
-    } w-full flex items-center py-5 fixed top-0 z-20 ${
-      isScrolled ? "bg-primary" : "bg-transparent"
-    }`}
-  >
+      className={`${
+        styles.paddingX
+      } w-full flex items-center py-5 fixed top-0 z-20 ${
+        isScrolled ? "bg-primary" : "bg-transparent"
+      }`}
+    >
       <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
         <Link
           to="/"
@@ -67,7 +67,7 @@ const Navbar = () => {
         </ul>
 
         {/* Social Media Dropdown */}
-        <div className="relative flex items-center">
+        <div className="sm:block relative flex hidden items-center">
           <div className="p-2 flex gap-4 mt-3">
             <a
               href="https://github.com/ShravanJanwade"
@@ -88,7 +88,10 @@ const Navbar = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <CIcon className="text-white text-2xl hover:text-gray-500 ml-1 mb-5 h-5"  icon={cibLeetcode} />
+              <CIcon
+                className="text-white text-2xl hover:text-gray-500 ml-1 mb-5 h-5"
+                icon={cibLeetcode}
+              />
             </a>
           </div>
         </div>
@@ -124,6 +127,34 @@ const Navbar = () => {
                   <a href={`#${nav.id}`}>{nav.title}</a>
                 </motion.li>
               ))}
+              <div className=" relative flex flex-col items-center">
+                <div className="p-2 flex  gap-4 mt-3">
+                  <a
+                    href="https://github.com/ShravanJanwade"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FaGithub className="text-white text-2xl hover:text-gray-500" />
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/shravankumar-janawade-45bbb0200/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FaLinkedin className="text-white text-2xl" />
+                  </a>
+                  <a
+                    href="https://leetcode.com/u/shravanJanwade/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <CIcon
+                      className="text-white text-2xl hover:text-gray-500 ml-1 mb-5 h-5"
+                      icon={cibLeetcode}
+                    />
+                  </a>
+                </div>
+              </div>
             </ul>
           </div>
         </div>

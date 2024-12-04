@@ -35,7 +35,7 @@ const ResumeComponent = () => {
   };
 
   return (
-    <div className="resume-container">
+    <div className="resume-container mt-0 sm:-mt-48">
       <motion.div variants={textVariant()}>
         <p className={styles.sectionSubText}>Explore My Professional Journey</p>
         <h2 className={styles.sectionHeadText}>My Professional Resume</h2>
