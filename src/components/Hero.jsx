@@ -50,7 +50,7 @@ const Hero = () => {
           <h1 className={`${styles.heroHeadText} text-white`}>
             Hi, I'm{" "}
             <span style={gradientStyle} className="text-7xl font-bold">
-              Shravan
+              Shravankumar
             </span>
           </h1>
           <p className={`${styles.heroSubText} mt-2 text-white-100`}>

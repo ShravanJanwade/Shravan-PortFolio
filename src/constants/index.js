@@ -13,6 +13,8 @@ import {
   nodejs,
   mongodb,
   python,
+  docker,
+  graphql,
   java,
   springboot,
   mysql,
@@ -268,160 +270,134 @@ const technologies = [
   {
     name: "HTML 5",
     icon: html,
-    description:
-      "Hyper-text Markup Language (HTML) is the standard markup language for creating web pages and web applications.",
-    foundation: 90,
-    intermediate: 70,
-    advance: 50,
-    docs: "https://developer.mozilla.org/en-US/docs/Web/HTML",
-    popularity: 77, // based on Stack Overflow Developer Survey 2024
-    activeUsers: "1,136,000,000", // Approximate active users based on recent data
+    level: 90,
+    color: "from-orange-400 to-red-500",
+    category: "Frontend",
+    experience: "4+ years",
   },
   {
     name: "CSS 3",
     icon: css,
-    description:
-      "Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in HTML or XML.",
-    foundation: 85,
-    intermediate: 75,
-    advance: 60,
-    docs: "https://developer.mozilla.org/en-US/docs/Web/CSS",
-    popularity: 66, // based on Stack Overflow Developer Survey 2024
-    activeUsers: "1,136,000,000", // Approximate active users based on recent data
+    level: 85,
+    color: "from-blue-400 to-indigo-500",
+    category: "Frontend",
+    experience: "4+ years",
   },
   {
     name: "JavaScript",
     icon: javascript,
-    description:
-      "JavaScript is a high-level, just-in-time compiled, and multi-paradigm programming language known for its use in web development.",
-    foundation: 95,
-    intermediate: 90,
-    advance: 80,
-    docs: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
-    popularity: 94, // based on Stack Overflow Developer Survey 2024
-    activeUsers: "1,600,000,000", // Approximate active users based on recent data
+    level: 95,
+    color: "from-yellow-400 to-yellow-600",
+    category: "Language",
+    experience: "4+ years",
   },
   {
     name: "React JS",
     icon: reactjs,
-    description:
-      "React is a popular JavaScript library for building user interfaces, particularly single-page applications where data can change over time without reloading the page.",
-    foundation: 80,
-    intermediate: 70,
-    advance: 60,
-    docs: "https://reactjs.org/",
-    popularity: 50, // based on Stack Overflow Developer Survey 2024
-    activeUsers: "400,000,000", // Approximate active users based on recent data
+    level: 80,
+    color: "from-cyan-400 to-blue-500",
+    category: "Frontend",
+    experience: "3+ years",
   },
   {
     name: "Redux Toolkit",
     icon: redux,
-    description:
-      "Redux Toolkit is a library that provides a standardized way to manage state in JavaScript applications, especially with React.",
-    foundation: 70,
-    intermediate: 60,
-    advance: 50,
-    docs: "https://redux-toolkit.js.org/",
-    popularity: 25, // based on Stack Overflow Developer Survey 2024
-    activeUsers: "100,000,000", // Approximate active users based on recent data
+    level: 70,
+    color: "from-purple-400 to-purple-600",
+    category: "State Management",
+    experience: "3+ years",
   },
   {
     name: "Tailwind CSS",
     icon: tailwind,
-    description:
-      "Tailwind CSS is a utility-first CSS framework for creating custom designs without having to leave your HTML.",
-    foundation: 60,
-    intermediate: 50,
-    advance: 40,
-    docs: "https://tailwindcss.com/",
-    popularity: 40, // based on Stack Overflow Developer Survey 2024
-    activeUsers: "60,000,000", // Approximate active users based on recent data
+    level: 60,
+    color: "from-teal-400 to-green-500",
+    category: "Frontend",
+    experience: "2+ years",
   },
   {
     name: "Node JS",
     icon: nodejs,
-    description:
-      "Node.js is an open-source, cross-platform JavaScript runtime environment that executes JavaScript code outside a web browser.",
-    foundation: 85,
-    intermediate: 80,
-    advance: 70,
-    docs: "https://nodejs.org/",
-    popularity: 67, // based on Stack Overflow Developer Survey 2024
-    activeUsers: "200,000,000", // Approximate active users based on recent data
+    level: 85,
+    color: "from-green-400 to-green-600",
+    category: "Backend",
+    experience: "3+ years",
   },
   {
     name: "Java",
     icon: java,
-    description:
-      "Java is a high-level, class-based, object-oriented programming language designed to have as few implementation dependencies as possible.",
-    foundation: 80,
-    intermediate: 70,
-    advance: 60,
-    docs: "https://docs.oracle.com/javase/tutorial/",
-    popularity: 48, // based on Stack Overflow Developer Survey 2024
-    activeUsers: "100,000,000", // Approximate active users based on recent data
+    level: 80,
+    color: "from-red-400 to-red-600",
+    category: "Language",
+    experience: "3+ years",
   },
   {
     name: "Spring Boot",
     icon: springboot,
-    description:
-      "Spring Boot is an extension of the Spring framework that simplifies the setup and development of new Spring applications.",
-    foundation: 65,
-    intermediate: 55,
-    advance: 45,
-    docs: "https://spring.io/projects/spring-boot",
-    popularity: 35, // based on Stack Overflow Developer Survey 2024
-    activeUsers: "30,000,000", // Approximate active users based on recent data
+    level: 65,
+    color: "from-green-400 to-green-700",
+    category: "Framework",
+    experience: "2+ years",
   },
   {
     name: "MySQL",
     icon: mysql,
-    description:
-      "MySQL is an open-source relational database management system based on Structured Query Language (SQL).",
-    foundation: 80,
-    intermediate: 75,
-    advance: 60,
-    docs: "https://dev.mysql.com/doc/",
-    popularity: 50, // based on Stack Overflow Developer Survey 2024
-    activeUsers: "60,000,000", // Approximate active users based on recent data
+    level: 80,
+    color: "from-blue-400 to-blue-600",
+    category: "Database",
+    experience: "3+ years",
   },
   {
     name: "MongoDB",
     icon: mongodb,
-    description:
-      "MongoDB is a NoSQL database known for its high performance, high availability, and easy scalability.",
-    foundation: 70,
-    intermediate: 60,
-    advance: 50,
-    docs: "https://www.mongodb.com/docs/",
-    popularity: 40, // based on Stack Overflow Developer Survey 2024
-    activeUsers: "40,000,000", // Approximate active users based on recent data
+    level: 70,
+    color: "from-green-400 to-green-600",
+    category: "Database",
+    experience: "2+ years",
   },
   {
     name: "Python",
     icon: python,
-    description:
-      "Python is an interpreted, high-level, general-purpose programming language with dynamic typing and garbage collection.",
-    foundation: 90,
-    intermediate: 85,
-    advance: 75,
-    docs: "https://docs.python.org/3/",
-    popularity: 82, // based on Stack Overflow Developer Survey 2024
-    activeUsers: "700,000,000", // Approximate active users based on recent data
+    level: 90,
+    color: "from-yellow-400 to-yellow-600",
+    category: "Language",
+    experience: "3+ years",
   },
   {
     name: "Git",
     icon: git,
-    description:
-      "Git is a distributed version control system designed to handle everything from small to very large projects with speed and efficiency.",
-    foundation: 95,
-    intermediate: 90,
-    advance: 85,
-    docs: "https://git-scm.com/doc",
-    popularity: 87, // based on Stack Overflow Developer Survey 2024
-    activeUsers: "500,000,000", // Approximate active users based on recent data
+    level: 95,
+    color: "from-red-400 to-red-600",
+    category: "Tool",
+    experience: "4+ years",
+  },
+  // New skills added
+  {
+    name: "TypeScript",
+    icon: typescript,
+    level: 85,
+    color: "from-blue-400 to-indigo-500",
+    category: "Language",
+    experience: "3+ years",
+  },
+  {
+    name: "Docker",
+    icon: docker,
+    level: 70,
+    color: "from-blue-500 to-blue-700",
+    category: "DevOps",
+    experience: "2+ years",
+  },
+  {
+    name: "GraphQL",
+    icon: graphql,
+    level: 65,
+    color: "from-pink-400 to-purple-500",
+    category: "API",
+    experience: "2+ years",
   },
 ];
+
 
 const experiences = [
   {
@@ -429,7 +405,7 @@ const experiences = [
     company_name: "Torry Harris Integration Solutions",
     icon: thdp,
     iconBg: "#383E56",
-    date: "March 2024 - Present",
+    date: "March 2024 - July 2025",
     points: [
       "Was Part of Torry harris digit product team and built the frontend and ui for torry harris marketplace",
       "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",

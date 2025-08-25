@@ -22,10 +22,10 @@ import typescript from "./tech/typescript.png";
 import threejs from "./tech/threejs.svg";
 
 import java from "./tech/Java.png";
-import springboot from "./tech/Springboot.jfif";
-import python from "./tech/Python.jfif";
-import mysql from "./tech/mysql.jpg";
-
+import springboot from "./tech/springboot.png";
+import python from "./tech/python.png";
+import mysql from "./tech/mysql.png";
+import graphql from "./tech/graphql.png"
 import meta from "./company/meta.png";
 import shopify from "./company/shopify.png";
 import starbucks from "./company/starbucks.png";
@@ -76,6 +76,7 @@ export {
   Snapgram,
   KBC,
   thdp,
+  graphql,
   upskillz,
   indoskill,
   java,

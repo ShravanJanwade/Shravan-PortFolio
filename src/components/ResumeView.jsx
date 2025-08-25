@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../styles/ResumeStyle.css";
-import resumeImage from "../assets/ShravanResume.png"; // Adjust the path accordingly
-import resumePDF from "../assets/ShravanResume.pdf"; // Import the PDF file
+import resumeImage from "../assets/Resume.png"; // Adjust the path accordingly
+import resumePDF from "../assets/ShravankumarJanawadeResume.pdf"; // Import the PDF file
 import { Tilt } from "react-tilt";
 import { styles } from "../styles";
 import { textVariant } from "../utils/motion";

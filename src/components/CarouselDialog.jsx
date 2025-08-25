@@ -10,7 +10,7 @@ import {
   Typography,
   Card,
 } from "@material-tailwind/react";
-
+import Profile from '../assets/profile.png'
 export default function DialogWithImage({
   mainImg,
   thumbnailImg = mainImg,
@@ -26,7 +26,7 @@ export default function DialogWithImage({
   const handleOpen = () => setOpen((cur) => !cur);
   const handleIsFavorite = () => setIsFavorite((cur) => !cur);
   const profileUrl =
-    "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80";
+   Profile;
   const handleShare = (platform) => {
     let shareUrl = "";
     switch (platform) {
@@ -69,7 +69,7 @@ export default function DialogWithImage({
               size="sm"
               variant="circular"
               alt="Shravan Janwade"
-              src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
+              src={Profile}
             />
             <div className="-mt-px flex flex-col">
               <Typography
