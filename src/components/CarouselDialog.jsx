@@ -10,7 +10,7 @@ import {
   Typography,
   Card,
 } from "@material-tailwind/react";
-import Profile from '../assets/profile.png'
+import Profile from '../assets/Profile.png'
 export default function DialogWithImage({
   mainImg,
   thumbnailImg = mainImg,
