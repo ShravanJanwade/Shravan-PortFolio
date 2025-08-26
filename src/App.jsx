@@ -15,6 +15,7 @@ import ResumeComponent from "./components/ResumeView";
 import ProjectPage from "./components/ProjectPage";
 import PersonalProject from "./components/PersonalProject";
 import EducationSection from "./components/Education";
+import MyApproach from "./components/MyApproach";
 const HomePage = () => (
   <div className="relative z-0 bg-primary">
     <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
@@ -26,6 +27,7 @@ const HomePage = () => (
     <EducationSection/>
     <Tech />
     <PersonalProject />
+    <MyApproach/>
     <ProblemSolving />
     <ResumeComponent />
     <Feedbacks />

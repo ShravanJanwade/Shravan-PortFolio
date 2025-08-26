@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { styles } from "../styles";
@@ -6,14 +6,16 @@ import { navLinks } from "../constants";
 import { logo, menu, close } from "../assets";
 import { CIcon } from "@coreui/icons-react";
 import { cibLeetcode } from "@coreui/icons";
-import { TbSocial } from "react-icons/tb";
-import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { HiSpeakerWave, HiSpeakerXMark } from "react-icons/hi2"; // Sleek icons
 import "../styles/NavbarStyle.css";
+import BackgroundMusic from '../assets/midnight-daydreams-250159.mp3'
 const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,19 +23,29 @@ const Navbar = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
-
-    // Cleanup event listener on unmount
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Toggle music
+  const toggleMusic = () => {
+    if (!audioRef.current) return;
+    if (isPlaying) {
+      audioRef.current.pause();
+      setIsPlaying(false);
+    } else {
+      audioRef.current.play();
+      setIsPlaying(true);
+    }
+  };
+
   return (
     <nav
-      className={`${
-        styles.paddingX
-      } w-full flex items-center py-5 fixed top-0 z-20 ${
+      className={`${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-20 ${
         isScrolled ? "bg-primary" : "bg-transparent"
       }`}
     >
       <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
+        {/* Logo */}
         <Link
           to="/"
           className="flex items-center gap-2"
@@ -48,6 +60,7 @@ const Navbar = () => {
           </p>
         </Link>
 
+        {/* Nav Links */}
         <ul className="list-none hidden sm:flex flex-row gap-10">
           {navLinks.map((nav) => (
             <motion.li
@@ -65,22 +78,23 @@ const Navbar = () => {
           ))}
         </ul>
 
-        {/* Social Media Dropdown */}
-        <div className="sm:block relative flex hidden items-center">
-          <div className="p-2 flex gap-4 mt-3">
+        {/* Right Side: Socials + Music */}
+        <div className="flex items-center gap-6">
+          {/* Social Media */}
+          <div className="hidden sm:flex gap-5 items-center">
             <a
               href="https://github.com/ShravanJanwade"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaGithub className="text-white text-2xl hover:text-gray-500" />
+              <FaGithub className="text-white text-2xl hover:text-gray-400 transition-colors" />
             </a>
             <a
               href="https://www.linkedin.com/in/shravankumar-janawade-45bbb0200/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaLinkedin className="text-white text-2xl" />
+              <FaLinkedin className="text-white text-2xl hover:text-gray-400 transition-colors" />
             </a>
             <a
               href="https://leetcode.com/u/shravanJanwade/"
@@ -88,21 +102,62 @@ const Navbar = () => {
               rel="noopener noreferrer"
             >
               <CIcon
-                className="text-white text-2xl hover:text-gray-500 ml-1 mb-5 h-5"
+                className="text-white text-2xl hover:text-gray-400 ml-1 h-6"
                 icon={cibLeetcode}
               />
             </a>
           </div>
+
+          {/* Music Toggle */}
+        {/* Music Toggle (hidden on mobile) */}
+<motion.div
+  onClick={toggleMusic}
+  whileTap={{ scale: 0.85 }}
+  className="relative cursor-pointer hidden sm:flex"
+>
+  {isPlaying ? (
+    <motion.div
+      className="relative flex items-center justify-center"
+      animate={{ scale: [1, 1.1, 1] }}
+      transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
+    >
+      {/* Glowing Ring */}
+      <span className="absolute w-8 h-8 rounded-full border border-cyan-400 animate-ping" />
+      {/* Equalizer bars */}
+      <span className="absolute flex gap-[3px]">
+        {[...Array(3)].map((_, i) => (
+          <motion.span
+            key={i}
+            className="w-[3px] h-4 bg-cyan-400 rounded-sm"
+            animate={{
+              height: ["6px", "16px", "6px"],
+            }}
+            transition={{
+              repeat: Infinity,
+              duration: 0.6,
+              delay: i * 0.2,
+              ease: "easeInOut",
+            }}
+          />
+        ))}
+      </span>
+      <HiSpeakerWave className="text-cyan-400 text-3xl drop-shadow-lg" />
+    </motion.div>
+  ) : (
+    <HiSpeakerXMark className="text-gray-400 text-3xl hover:text-red-400 transition-colors" />
+  )}
+</motion.div>
+
         </div>
 
-        <div className="sm:hidden flex flex-1 justify-end items-center hover:text-gray-400">
+        {/* Mobile Menu */}
+        <div className="sm:hidden flex flex-1 justify-end items-center">
           <img
             src={toggle ? close : menu}
             alt="menu"
             className="w-[28px] h-[28px] object-contain"
             onClick={() => setToggle(!toggle)}
           />
-
           <div
             className={`${
               !toggle ? "hidden" : "flex"
@@ -126,38 +181,13 @@ const Navbar = () => {
                   <a href={`#${nav.id}`}>{nav.title}</a>
                 </motion.li>
               ))}
-              <div className=" relative flex flex-col items-center">
-                <div className="p-2 flex  gap-4 mt-3">
-                  <a
-                    href="https://github.com/ShravanJanwade"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FaGithub className="text-white text-2xl hover:text-gray-500" />
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/in/shravankumar-janawade-45bbb0200/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FaLinkedin className="text-white text-2xl" />
-                  </a>
-                  <a
-                    href="https://leetcode.com/u/shravanJanwade/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <CIcon
-                      className="text-white text-2xl hover:text-gray-500 ml-1 mb-5 h-5"
-                      icon={cibLeetcode}
-                    />
-                  </a>
-                </div>
-              </div>
             </ul>
           </div>
         </div>
       </div>
+
+      {/* Hidden Audio Player */}
+      <audio ref={audioRef} loop src={BackgroundMusic} />
     </nav>
   );
 };
